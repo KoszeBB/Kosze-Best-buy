@@ -36,11 +36,13 @@ main{display:grid;grid-template-columns:minmax(0,1fr) 400px;gap:16px;height:max(
 .bb-pin.dim{opacity:.25}
 
 /* karta sklepu */
-.bb-pop .leaflet-popup-content-wrapper{border-radius:18px;padding:0;box-shadow:0 12px 32px rgba(0,0,0,.22)}
-.bb-pop .leaflet-popup-content{margin:24px 22px 22px;width:auto!important;min-width:240px;max-width:290px;display:flex;flex-direction:column;gap:6px}
+.bb-pop .leaflet-popup-content-wrapper{border-radius:18px;padding:22px 22px 22px;box-shadow:0 12px 32px rgba(0,0,0,.22);display:flow-root}
+.bb-pop .leaflet-popup-content{margin:0;width:auto!important;min-width:240px;max-width:290px;display:flex;flex-direction:column;gap:6px}
+.bb-pop .leaflet-popup-content > :first-child{margin-top:0}
+.bb-pop .leaflet-popup-content > :last-child{margin-bottom:0}
 .bb-pop .leaflet-popup-tip{box-shadow:none}
 .bb-pop h3{margin:0 26px 0 0;font:800 21px/1.15 var(--f-display);font-stretch:85%;color:var(--ink)}
-.bb-pop p{margin:0 0 10px!important;color:var(--muted);font-size:14.5px}
+.bb-pop .leaflet-popup-content p{margin:0 0 10px;color:var(--muted);font-size:14.5px}
 .bb-pop .sep{height:1px;background:var(--line);margin:6px 0 8px}
 .bb-pop a.go{display:block;text-align:center;background:var(--grad);color:#fff!important;font:800 18px/1 var(--f-display);font-stretch:85%;padding:15px 12px;border-radius:12px;text-decoration:none}
 .bb-pop a.go:hover{filter:brightness(1.08)}

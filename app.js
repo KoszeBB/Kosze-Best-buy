@@ -51,6 +51,8 @@ Object.values(PTS).forEach(P=>{
 function refreshIcons(){
   const z=map.getZoom();
   for(const k in PTS){ const P=PTS[k], dim=!!st.focus&&!st.focus.has(k); P.m.setIcon(pinIcon(z,dim)); P.m.setZIndexOffset(dim?-1000:0); }
+  // karta ma siedzieć tuż nad znaczkiem także po zmianie jego rozmiaru
+  for(const k in PTS){ const m=PTS[k].m; if(m.isPopupOpen()) m.getPopup().update(); }
 }
 map.on("zoomend",refreshIcons);
 
@@ -62,7 +64,7 @@ function row(s,dist){
   r.querySelector(".n").textContent=s.d; r.querySelector(".a").textContent=s.u+", "+town(s.l);
   r.querySelector(".km").textContent=dist==null?"":(dist<1?"na miejscu":(dist<10?dist.toFixed(1).replace(".",","):Math.round(dist))+" km");
   const a=r.querySelector("a"); a.href=gmaps(s); a.addEventListener("click",e=>e.stopPropagation());
-  const go=()=>{ const P=PTS[s.p]; map.setView([P.lat,P.lon],Math.max(map.getZoom(),15)); P.m.openPopup(); if(window.innerWidth<=900) $("map").scrollIntoView({behavior:"smooth",block:"center"}); };
+  const go=()=>{ const P=PTS[s.p]; map.closePopup(); map.once("moveend",()=>P.m.openPopup()); map.setView([P.lat,P.lon],Math.max(map.getZoom(),15)); if(window.innerWidth<=900) $("map").scrollIntoView({behavior:"smooth",block:"center"}); };
   r.onclick=go; r.onkeydown=e=>{ if(e.key==="Enter") go(); };
   return r;
 }
