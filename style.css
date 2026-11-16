@@ -10,12 +10,10 @@
 *{box-sizing:border-box}
 [hidden]{display:none!important}
 html,body{margin:0}
-/* tło: delikatna kratka jak w metalowym koszu + czerwona poświata u góry */
+/* tło: czerwona poświata u góry */
 body{background-color:var(--bg);padding-block:24px!important;
   background-image:
-    radial-gradient(1200px 520px at 50% -120px, rgba(220,13,21,.20), rgba(220,13,21,0) 70%),
-    repeating-linear-gradient(45deg, rgba(166,25,26,.10) 0 1.5px, transparent 1.5px 22px),
-    repeating-linear-gradient(-45deg, rgba(166,25,26,.10) 0 1.5px, transparent 1.5px 22px);
+    radial-gradient(1200px 520px at 50% -120px, rgba(220,13,21,.20), rgba(220,13,21,0) 70%);
   background-attachment:fixed;color:var(--ink);font:15px/1.45 var(--f-body);padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:16px}
 .wrap{max-width:1360px;margin:0 auto;display:flex;flex-direction:column;gap:16px}
 
