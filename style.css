@@ -1,0 +1,79 @@
+/* Układ: czerwony nagłówek z logo i wyszukiwarką; mapa po lewej, lista najbliższych sklepów po prawej; na telefonie jedno pod drugim */
+:root{
+  --bg:#f4f1f1; --panel:#ffffff; --ink:#1a1416; --muted:#6a5f62; --line:#e4dcdd;
+  --red:#dc0d15; --red-deep:#a6191a; --on-red:#ffffff; --focus:#1d4ed8;
+  --grad:linear-gradient(120deg,#dc0d15 0%,#dc0d15 35%,#a6191a 100%);
+  --f-display:"Archivo","Arial Narrow",system-ui,sans-serif;
+  --f-body:"IBM Plex Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+html,body{margin:0}
+body{background:var(--bg);color:var(--ink);font:15px/1.45 var(--f-body);padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:16px}
+.wrap{max-width:1360px;margin:0 auto;display:flex;flex-direction:column;gap:16px}
+
+header{background:var(--grad);color:var(--on-red);border-radius:8px;padding:22px 24px;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:18px 28px;align-items:center}
+.eyebrow{font:700 12px/1 var(--f-body);letter-spacing:.12em;text-transform:uppercase;opacity:.85}
+h1{margin:8px 0 6px;font:900 clamp(30px,4.6vw,56px)/.95 var(--f-display);font-stretch:72%;letter-spacing:-.005em;text-wrap:balance}
+.lede{margin:0;max-width:52ch;font-size:15px;opacity:.95}
+.logo{width:clamp(150px,18vw,230px);height:auto;display:block;filter:drop-shadow(0 4px 10px rgba(0,0,0,.18))}
+.find{grid-column:1/-1;display:flex;gap:8px;flex-wrap:wrap}
+.find input{flex:1 1 260px;min-width:0;padding:13px 14px;border:0;border-radius:6px;font:500 16px var(--f-body);background:var(--panel);color:var(--ink)}
+.find button{padding:13px 18px;border:2px solid var(--on-red);background:transparent;color:var(--on-red);border-radius:6px;font:700 15px var(--f-body);cursor:pointer}
+.find button:hover{background:rgba(255,255,255,.12)}
+
+main{display:grid;grid-template-columns:minmax(0,1fr) 400px;gap:16px;height:max(560px,calc(100vh - 330px))}
+.mapbox{position:relative;border:1px solid var(--line);border-radius:8px;overflow:hidden;min-height:500px;background:#eef0f2}
+#map{position:absolute;inset:0}
+/* spokojniejszy, „czysty” podkład mapy */
+.leaflet-tile-pane{filter:grayscale(.45) saturate(.85) brightness(1.03) contrast(.95)}
+.leaflet-container{font-family:var(--f-body)}
+.leaflet-bar a{color:var(--ink)}
+
+.bb-pin{background:none;border:0}
+.bb-pin svg{display:block;width:100%;height:100%;filter:drop-shadow(0 2px 2px rgba(0,0,0,.25))}
+.bb-pin.dim{opacity:.25}
+
+/* karta sklepu */
+.bb-pop .leaflet-popup-content-wrapper{border-radius:18px;padding:0;box-shadow:0 12px 32px rgba(0,0,0,.22)}
+.bb-pop .leaflet-popup-content{margin:24px 22px 22px;width:auto!important;min-width:240px;max-width:290px;display:flex;flex-direction:column;gap:6px}
+.bb-pop .leaflet-popup-tip{box-shadow:none}
+.bb-pop h3{margin:0 26px 0 0;font:800 21px/1.15 var(--f-display);font-stretch:85%;color:var(--ink)}
+.bb-pop p{margin:0 0 10px!important;color:var(--muted);font-size:14.5px}
+.bb-pop .sep{height:1px;background:var(--line);margin:6px 0 8px}
+.bb-pop a.go{display:block;text-align:center;background:var(--grad);color:#fff!important;font:800 18px/1 var(--f-display);font-stretch:85%;padding:15px 12px;border-radius:12px;text-decoration:none}
+.bb-pop a.go:hover{filter:brightness(1.08)}
+.bb-pop a.leaflet-popup-close-button{top:12px;right:12px;width:30px;height:30px;font:400 26px/30px var(--f-body);color:var(--ink);border-radius:8px}
+.bb-pop a.leaflet-popup-close-button:hover{background:var(--bg)}
+
+aside{background:var(--panel);border:1px solid var(--line);border-radius:8px;display:flex;flex-direction:column;min-height:0;overflow:hidden}
+.ahead{padding:14px 16px;border-bottom:1px solid var(--line)}
+.ahead h2{margin:0;font:800 20px/1.1 var(--f-display);font-stretch:85%}
+.ahead p{margin:4px 0 0;color:var(--muted);font-size:13px}
+.ahead p button{border:0;background:none;color:var(--red-deep);font:600 13px var(--f-body);cursor:pointer;padding:0}
+.list{overflow:auto;flex:1;min-height:0}
+.row{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:4px 12px;padding:12px 16px;border-bottom:1px solid var(--line);cursor:pointer;align-items:start}
+.row:hover{background:var(--bg)}
+.row .n{font-weight:600}
+.row .a{color:var(--muted);font-size:13.5px;grid-column:1}
+.row .km{font:700 13px var(--f-body);color:var(--red-deep);font-variant-numeric:tabular-nums;text-align:right}
+.row a{grid-column:2;grid-row:2;justify-self:end;font:600 13px var(--f-body);color:var(--red-deep);text-decoration:none;white-space:nowrap}
+.row a:hover{text-decoration:underline}
+.grp{padding:10px 16px 6px;font:800 14px/1.2 var(--f-display);font-stretch:90%;position:sticky;top:0;background:var(--panel);border-bottom:1px solid var(--line);z-index:1;display:flex;justify-content:space-between}
+.grp span{font:500 12px var(--f-body);color:var(--muted)}
+
+footer.contact{background:var(--grad);color:#fff;border-radius:16px;padding:28px 28px 30px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px 32px}
+footer.contact h4{margin:0 0 12px;font:800 19px/1.1 var(--f-display);font-stretch:85%}
+footer.contact p{margin:0;font-size:15px;line-height:1.55;opacity:.95}
+footer.contact b{font-weight:700;user-select:all}
+
+button:focus-visible,input:focus-visible,.row:focus-visible,a:focus-visible{outline:2px solid var(--focus);outline-offset:2px}
+@media (max-width:900px){
+  header{grid-template-columns:1fr}
+  .logo{justify-self:start;order:-1;width:150px}
+  main{grid-template-columns:1fr;height:auto}
+  .mapbox{height:60vh;min-height:360px}
+  .list{max-height:75vh}
+}
+@media (max-width:700px){footer.contact{grid-template-columns:1fr}}
