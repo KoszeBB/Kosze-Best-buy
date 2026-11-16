@@ -115,5 +115,8 @@ $("q").addEventListener("change",search);
 $("q").addEventListener("input",e=>{ if(!e.target.value){ renderAll(); } });
 document.addEventListener("keydown",e=>{ if(e.key==="Escape") map.closePopup(); });
 
+// na telefonie krótsza podpowiedź w polu wyszukiwania
+if(window.matchMedia("(max-width:700px)").matches) $("q").placeholder="Wpisz miejscowość";
+
 renderAll();
 })();
