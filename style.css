@@ -10,26 +10,23 @@
 *{box-sizing:border-box}
 [hidden]{display:none!important}
 html,body{margin:0}
-/* tło: białe, a po bokach treści duże wykrzykniki akcji (na szerokim ekranie) */
-body{background:#ffffff;color:var(--ink);font:15px/1.45 var(--f-body);padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:24px}
-/* wykrzykniki przyklejone do boków treści; chowają się na wąskich ekranach */
-body::before,body::after{content:"";position:fixed;top:40px;width:560px;height:788px;max-height:92vh;background:center top/contain no-repeat;z-index:-1;pointer-events:none}
-body::before{left:calc(50% - 450px - 560px + 30px);background-image:url("assets/wykrzykniki-lewe.svg")}
-body::after{right:calc(50% - 450px - 560px + 30px);background-image:url("assets/wykrzykniki-prawe.svg")}
-@media (max-width:1099px){body::before,body::after{display:none}}
-.wrap{max-width:900px;position:relative;margin:0 auto;display:flex;flex-direction:column;gap:16px}
+/* tło: porozrzucane wykrzykniki akcji */
+body{background-color:var(--bg);padding-block:24px!important;
+  background-image:url("assets/wykrzykniki-tlo.svg");
+  background-size:1100px 1000px;color:var(--ink);font:15px/1.45 var(--f-body);padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:16px}
+.wrap{max-width:1360px;margin:0 auto;display:flex;flex-direction:column;gap:16px}
 
-header{background:var(--grad);color:var(--on-red);border-radius:6px;padding:18px 18px 16px 20px;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:18px 28px;align-items:center}
+header{background:var(--grad);color:var(--on-red);border-radius:8px;padding:22px 24px;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:18px 28px;align-items:center}
 .eyebrow{font:700 12px/1 var(--f-body);letter-spacing:.12em;text-transform:uppercase;opacity:.85}
-h1{margin:8px 0 6px;font:900 clamp(26px,3.4vw,38px)/1 var(--f-display);font-stretch:68%;letter-spacing:-.005em;text-wrap:balance}
-.lede{margin:0;max-width:48ch;font-size:13.5px;opacity:.95}
-.logo{width:clamp(120px,14vw,150px);height:auto;display:block;filter:drop-shadow(0 4px 10px rgba(0,0,0,.18))}
+h1{margin:8px 0 6px;font:900 clamp(30px,4.6vw,56px)/.95 var(--f-display);font-stretch:72%;letter-spacing:-.005em;text-wrap:balance}
+.lede{margin:0;max-width:52ch;font-size:15px;opacity:.95}
+.logo{width:clamp(150px,18vw,230px);height:auto;display:block;filter:drop-shadow(0 4px 10px rgba(0,0,0,.18))}
 .find{grid-column:1/-1;display:flex;gap:8px;flex-wrap:wrap}
 .find input{flex:1 1 260px;min-width:0;padding:13px 14px;border:0;border-radius:6px;font:500 16px var(--f-body);background:var(--panel);color:var(--ink)}
 .find button{padding:13px 18px;border:2px solid var(--on-red);background:transparent;color:var(--on-red);border-radius:6px;font:700 15px var(--f-body);cursor:pointer}
 .find button:hover{background:rgba(255,255,255,.12)}
 
-main{display:grid;grid-template-columns:minmax(0,1fr) 280px;gap:12px;height:max(560px,calc(100vh - 260px))}
+main{display:grid;grid-template-columns:minmax(0,1fr) 400px;gap:16px;height:max(560px,calc(100vh - 330px))}
 .mapbox{position:relative;border:1px solid var(--line);border-radius:8px;overflow:hidden;min-height:500px;background:#eef0f2}
 #map{position:absolute;inset:0}
 /* spokojniejszy, „czysty” podkład mapy */
