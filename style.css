@@ -10,16 +10,16 @@
 *{box-sizing:border-box}
 [hidden]{display:none!important}
 html,body{margin:0}
-/* tło: rozsypane wykrzykniki akcji + czerwona poświata u góry */
+/* tło: kilka dużych wykrzykników akcji + czerwona poświata u góry */
 body{background-color:var(--bg);padding-block:24px!important;
   background-image:
     radial-gradient(1200px 520px at 50% -120px, rgba(220,13,21,.20), rgba(220,13,21,0) 70%),
     url("assets/wykrzykniki-tlo.svg");
-  background-size:auto, 640px 720px;
+  background-size:auto, 1400px 1200px;
   background-attachment:fixed, scroll;color:var(--ink);font:15px/1.45 var(--f-body);padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:16px}
 .wrap{max-width:1360px;margin:0 auto;display:flex;flex-direction:column;gap:16px}
 
-header{background:url("assets/wykrzykniki-biale.svg") 0 0/480px 540px, var(--grad);color:var(--on-red);border-radius:8px;padding:22px 24px;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:18px 28px;align-items:center}
+header{background:url("assets/wykrzykniki-biale.svg") left center/1400px 320px no-repeat, var(--grad);color:var(--on-red);border-radius:8px;padding:22px 24px;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:18px 28px;align-items:center}
 .eyebrow{font:700 12px/1 var(--f-body);letter-spacing:.12em;text-transform:uppercase;opacity:.85}
 h1{margin:8px 0 6px;font:900 clamp(30px,4.6vw,56px)/.95 var(--f-display);font-stretch:72%;letter-spacing:-.005em;text-wrap:balance}
 .lede{margin:0;max-width:52ch;font-size:15px;opacity:.95}
@@ -71,7 +71,7 @@ aside{background:var(--panel);border:1px solid var(--line);border-radius:8px;dis
 .grp{padding:10px 16px 6px;font:800 14px/1.2 var(--f-display);font-stretch:90%;position:sticky;top:0;background:var(--panel);border-bottom:1px solid var(--line);z-index:1;display:flex;justify-content:space-between}
 .grp span{font:500 12px var(--f-body);color:var(--muted)}
 
-footer.contact{background:url("assets/wykrzykniki-biale.svg") 200px -120px/480px 540px, var(--grad);color:#fff;border-radius:16px;padding:28px 28px 30px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px 32px}
+footer.contact{background:url("assets/wykrzykniki-stopka.svg") right center/1400px 160px no-repeat, var(--grad);color:#fff;border-radius:16px;padding:28px 28px 30px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px 32px}
 footer.contact h4{margin:0 0 12px;font:800 19px/1.1 var(--f-display);font-stretch:85%}
 footer.contact p{margin:0;font-size:15px;line-height:1.55;opacity:.95}
 footer.contact b{font-weight:700;user-select:all}
