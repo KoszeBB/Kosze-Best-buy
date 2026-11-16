@@ -26,8 +26,8 @@ const iconCache={};
 function pinIcon(z,dim){
   const h=Math.round(Math.max(16,Math.min(60,14+(z-5)*6))), w=Math.round(h/1.19), key=h+(dim?"d":"");
   return iconCache[key]||(iconCache[key]=L.divIcon({
-    className:"bb-pin"+(dim?" dim":""), iconSize:[w,h], iconAnchor:[w/2,h], popupAnchor:[0,-h+6],
-    html:'<svg viewBox="97.67 66 400 476" aria-hidden="true"><use href="#pin"/></svg>'
+    className:"bb-pin"+(dim?" dim":""), iconSize:[w,h], iconAnchor:[w/2,h], popupAnchor:[0,-h+2],
+    html:'<svg viewBox="0 0 400 476" aria-hidden="true"><use href="#pin" x="0" y="0" width="400" height="476"/></svg>'
   }));
 }
 
