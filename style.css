@@ -28,7 +28,7 @@
 html,body{margin:0}
 /* tło: porozrzucane wykrzykniki akcji */
 body{background-color:var(--bg);transition:background-color .2s;padding-block:24px!important;
-  background-image:url("assets/wykrzykniki-tlo.svg?v=202611170736");
+  background-image:url("assets/wykrzykniki-tlo.svg?v=202611170745");
   background-size:1100px 1000px;color:var(--ink);font:15px/1.45 var(--f-body);padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:16px}
 .wrap{max-width:1360px;margin:0 auto;display:flex;flex-direction:column;gap:16px}
 
