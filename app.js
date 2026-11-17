@@ -118,5 +118,12 @@ document.addEventListener("keydown",e=>{ if(e.key==="Escape") map.closePopup(); 
 // na telefonie krótsza podpowiedź w polu wyszukiwania
 if(window.matchMedia("(max-width:700px)").matches) $("q").placeholder="Wpisz miejscowość";
 
+// przełącznik trybu nocnego (zapamiętywany w przeglądarce)
+$("theme").addEventListener("click",()=>{
+  const root=document.documentElement, cur=root.getAttribute("data-theme")||(matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light");
+  const next=cur==="dark"?"light":"dark"; root.setAttribute("data-theme",next);
+  try{ localStorage.setItem("bb-theme",next); }catch(e){}
+});
+
 renderAll();
 })();
