@@ -28,11 +28,11 @@
 html,body{margin:0}
 /* tło: porozrzucane wykrzykniki akcji */
 body{background-color:var(--bg);transition:background-color .2s;padding-block:24px!important;
-  background-image:url("assets/wykrzykniki-tlo.svg?v=202611260859");
+  background-image:url("assets/wykrzykniki-tlo.svg?v=202611260902");
   background-size:1100px 1000px;color:var(--ink);font:15px/1.45 var(--f-body);padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:16px}
 .wrap{max-width:1360px;margin:0 auto;display:flex;flex-direction:column;gap:16px}
 
-header{background:var(--grad);color:var(--on-red);border-radius:8px;padding:22px 24px;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:18px 28px;align-items:center}
+header{background:var(--grad);color:var(--on-red);border-radius:8px;padding:22px 24px;display:grid;grid-template-columns:minmax(0,1fr) auto;grid-template-rows:minmax(clamp(120px,14.4vw,184px),auto) auto;gap:18px 28px;align-items:center}
 .eyebrow{font:700 12px/1 var(--f-body);letter-spacing:.12em;text-transform:uppercase;opacity:.85}
 h1{margin:8px 0 6px;font:900 clamp(30px,4.6vw,56px)/.95 var(--f-display);font-stretch:72%;letter-spacing:-.005em;text-wrap:balance}
 .lede{margin:0;max-width:52ch;font-size:15px;opacity:.95}
@@ -103,6 +103,7 @@ button:focus-visible,input:focus-visible,.row:focus-visible,a:focus-visible{outl
 :root[data-theme="dark"] .theme .sun{display:block} :root[data-theme="dark"] .theme .moon{display:none}
 @media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .theme .sun{display:block} :root:not([data-theme="light"]) .theme .moon{display:none}}
 @media (max-width:900px){
+  header{grid-template-rows:auto}
   main{grid-template-columns:1fr;height:auto}
   .mapbox{height:62vh;min-height:360px}
   .list{max-height:75vh}
@@ -111,7 +112,7 @@ button:focus-visible,input:focus-visible,.row:focus-visible,a:focus-visible{outl
 @media (max-width:700px){
   body{padding-block:10px}
   .wrap{gap:10px}
-  header{grid-template-columns:minmax(0,1fr) auto;gap:10px 12px;padding:12px 12px 12px 14px;border-radius:8px}
+  header{grid-template-columns:minmax(0,1fr) auto;grid-template-rows:auto auto;gap:10px 12px;padding:12px 12px 12px 14px;border-radius:8px}
   .eyebrow,.lede{display:none}
   h1{margin:0;font-size:clamp(20px,6vw,26px);line-height:1.02}
   .logo{width:64px;filter:none}
