@@ -28,7 +28,7 @@
 html,body{margin:0}
 /* tło: porozrzucane wykrzykniki akcji */
 body{background-color:var(--bg);transition:background-color .2s;padding-block:24px!important;
-  background-image:url("assets/wykrzykniki-tlo.svg?v=202611260856");
+  background-image:url("assets/wykrzykniki-tlo.svg?v=202611260859");
   background-size:1100px 1000px;color:var(--ink);font:15px/1.45 var(--f-body);padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:16px}
 .wrap{max-width:1360px;margin:0 auto;display:flex;flex-direction:column;gap:16px}
 
@@ -36,7 +36,7 @@ header{background:var(--grad);color:var(--on-red);border-radius:8px;padding:22px
 .eyebrow{font:700 12px/1 var(--f-body);letter-spacing:.12em;text-transform:uppercase;opacity:.85}
 h1{margin:8px 0 6px;font:900 clamp(30px,4.6vw,56px)/.95 var(--f-display);font-stretch:72%;letter-spacing:-.005em;text-wrap:balance}
 .lede{margin:0;max-width:52ch;font-size:15px;opacity:.95}
-.logo{width:clamp(150px,18vw,230px);height:auto;display:block;filter:drop-shadow(0 4px 10px rgba(0,0,0,.18))}
+.logo{width:clamp(128px,15vw,195px);height:auto;display:block;filter:drop-shadow(0 4px 10px rgba(0,0,0,.18))}
 .find{grid-column:1/-1;display:flex;gap:8px;flex-wrap:wrap}
 .find input{flex:1 1 260px;min-width:0;padding:13px 14px;border:0;border-radius:6px;font:500 16px var(--f-body);background:var(--panel);color:var(--ink)}
 .find button{padding:13px 18px;border:2px solid var(--on-red);background:transparent;color:var(--on-red);border-radius:6px;font:700 15px var(--f-body);cursor:pointer}
